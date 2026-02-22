@@ -20,8 +20,8 @@ function Page({ id }) {
   const isMobile = useIsMobile();
   const rightContainerRef = useRef();
   const leftContainerRef = useRef();
-  const [isLoading, setFluidColor] = useStore(
-    useShallow((state) => [state.isLoading, state.setFluidColor]),
+  const [isLoading, setFluidColor, theme] = useStore(
+    useShallow((state) => [state.isLoading, state.setFluidColor, state.theme]),
   );
   const windowSize = useWindowSize();
 
@@ -71,17 +71,18 @@ function Page({ id }) {
       setFluidColor(currentProject.fluidColor);
     }
     return () => {
+      const isLight = theme === 'light';
       updateCSSVariables({
-        primary: '#28282b',
-        secondary: '#f0f4f1',
-        accentColor: '#f9f9f9',
-        fillColor: '#f2ffbd',
-        menuColor: '#28282b',
-        menuFontColor: '#f0f4f1',
+        primary: isLight ? '#28282b' : '#e8e8e8',
+        secondary: isLight ? '#f0f4f1' : '#1a1a1d',
+        accentColor: isLight ? '#f9f9f9' : '#2e2e32',
+        fillColor: isLight ? '#f2ffbd' : '#3a4a1a',
+        menuColor: isLight ? '#28282b' : '#e8e8e8',
+        menuFontColor: isLight ? '#f0f4f1' : '#1a1a1d',
       });
       setFluidColor('#d7d7d4');
     };
-  }, [currentProject]);
+  }, [currentProject, theme]);
 
   const seo = useMemo(
     () => ({

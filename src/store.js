@@ -14,4 +14,15 @@ export const useStore = create((set) => ({
   setFluidColor: (fluidColor) => set({ fluidColor }),
   isAbout: false,
   setIsAbout: (isAbout) => set({ isAbout }),
+  theme: 'light',
+  setTheme: (theme) => set({ theme }),
+  toggleTheme: () =>
+    set((state) => {
+      const newTheme = state.theme === 'light' ? 'dark' : 'light';
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('theme', newTheme);
+        document.documentElement.setAttribute('data-theme', newTheme);
+      }
+      return { theme: newTheme };
+    }),
 }));

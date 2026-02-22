@@ -52,6 +52,7 @@
   .labelClassic {
     z-index: 2;
     line-height: 46%;
+    color: var(--black);
     @include mobile {
       line-height: 100%;
     }

@@ -1,24 +1,24 @@
-.fade-in>div {
+.fade-in > div {
   animation: fadeIn 0.65s cubic-bezier(0.4, 0, 0.1, 1) forwards;
 }
 
-.fade-out>div {
+.fade-out > div {
   animation: fadeOut 0.45s forwards;
 }
 
-.fade-in>div:nth-child(1) {
+.fade-in > div:nth-child(1) {
   animation-delay: 100ms;
 }
 
-.fade-out>div:nth-child(1) {
+.fade-out > div:nth-child(1) {
   animation-delay: 200ms;
 }
 
-.fade-in>div:nth-child(2) {
+.fade-in > div:nth-child(2) {
   animation-delay: 200ms;
 }
 
-.fade-out>div:nth-child(2) {
+.fade-out > div:nth-child(2) {
   animation-delay: 100ms;
 }
 
@@ -47,10 +47,10 @@
 }
 
 .color-change {
-  color: rgba(40, 40, 43, 0.1) !important;
+  color: color-mix(in srgb, var(--black) 10%, transparent) !important;
 }
 .fill-change {
-  fill: rgba(40, 40, 43, 0.1) !important;
+  fill: color-mix(in srgb, var(--black) 10%, transparent) !important;
 }
 #menu,
 main,

@@ -12,7 +12,7 @@
   mix-blend-mode: difference;
   border-radius: 0.15vw;
 
-  background-color: #f0f4f11a;
+  background-color: color-mix(in srgb, var(--footerText) 10%, transparent);
 
   @include mobile {
     width: 0.65vw;
@@ -22,7 +22,7 @@
 
     width: 0.25vw;
     height: 6svh;
-    background-color: var(--white);
+    background-color: var(--footerText);
     border: none;
 
     border-radius: 0.15vw;

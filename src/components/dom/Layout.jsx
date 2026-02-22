@@ -1,5 +1,8 @@
 import React, { useCallback, useMemo, useRef, useState } from 'react';
-import { Transition as ReactTransition, SwitchTransition } from 'react-transition-group';
+import {
+  Transition as ReactTransition,
+  SwitchTransition,
+} from 'react-transition-group';
 
 import Footer from '@src/components/dom/Footer';
 import PreFooter from '@src/components/dom/PreFooter';
@@ -9,9 +12,17 @@ import { useShallow } from 'zustand/react/shallow';
 import { useStore } from '@src/store';
 
 function Layout({ children, layoutRef, mainRef, router }) {
-  const [lenis, introOut, setIsLoading, isMenuOpen, setIsMenuOpen, setIsAbout] = useStore(
-    useShallow((state) => [state.lenis, state.introOut, state.setIsLoading, state.isMenuOpen, state.setIsMenuOpen, state.setIsAbout]),
-  );
+  const [lenis, introOut, setIsLoading, isMenuOpen, setIsMenuOpen, setIsAbout] =
+    useStore(
+      useShallow((state) => [
+        state.lenis,
+        state.introOut,
+        state.setIsLoading,
+        state.isMenuOpen,
+        state.setIsMenuOpen,
+        state.setIsAbout,
+      ]),
+    );
 
   const enterTimelineRef = useRef();
   const exitTimelineRef = useRef();
@@ -177,7 +188,7 @@ function Layout({ children, layoutRef, mainRef, router }) {
                 ease: 'power2.inOut',
                 scale: 0.9,
                 opacity: 1,
-                border: '2px solid #f0f4f1',
+                border: `2px solid ${getComputedStyle(document.documentElement).getPropertyValue('--white').trim()}`,
                 borderRadius: '1.3888888889vw',
                 duration: 0.5,
               },

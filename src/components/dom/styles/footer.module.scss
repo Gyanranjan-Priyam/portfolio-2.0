@@ -21,7 +21,7 @@
       width: 100%;
     }
     .title {
-      color: var(--white);
+      color: var(--footerText);
       padding-bottom: var(--layout-columns-gap);
     }
 
@@ -41,8 +41,8 @@
           width: 0.75vw;
           top: auto;
           overflow: unset;
-          fill: var(--white);
-          stroke: var(--white);
+          fill: var(--footerText);
+          stroke: var(--footerText);
           @include mobile {
             height: 2vw;
             width: 2vw;
@@ -81,10 +81,10 @@
     width: min-content;
     grid-column: 9 / 17;
     .workWithMe {
-      color: var(--white);
+      color: var(--footerText);
     }
     .link {
-      color: var(--white);
+      color: var(--footerText);
       font-size: 2.5vw;
       line-height: 4.1vw;
       position: relative;
@@ -92,7 +92,7 @@
 
       cursor: pointer;
       .email {
-        color: var(--white);
+        color: var(--footerText);
       }
     }
     .link::before,
@@ -121,7 +121,7 @@
       left: 0;
       pointer-events: none;
       fill: none;
-      stroke: var(--white);
+      stroke: var(--footerText);
       bottom: 0;
       stroke-width: 0.03em;
       transition: transform 0.7s;
@@ -144,10 +144,10 @@
     }
   }
   div {
-    color: var(--white);
+    color: var(--footerText);
   }
 
-  .priyam{
+  .priyam {
     @include mobile {
       grid-column: 1 / 6;
       font-size: 22.2vw;
@@ -159,7 +159,7 @@
     font-size: 15.2vw;
     line-height: 12.628vw;
     transform: translate(-0.3vw, 2.1vw);
-    color: var(--white);
+    color: var(--footerText);
     > span {
       display: inherit;
     }

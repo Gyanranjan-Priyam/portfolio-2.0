@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import MenuButton from '@src/components/dom/navbar/components/MenuButton';
 import MenuLinks from '@src/components/dom/navbar/components/MenuLinks';
+import ThemeToggle from '@src/components/dom/themeToggle/Index';
 import styles from '@src/components/dom/navbar/styles/index.module.scss';
 import { useCallback } from 'react';
 import useIsMobile from '@src/hooks/useIsMobile';
@@ -61,6 +62,7 @@ function Navbar() {
                 label="GET IN TOUCH"
               />
             )}
+            <ThemeToggle />
             <MenuButton />
           </div>
         </div>

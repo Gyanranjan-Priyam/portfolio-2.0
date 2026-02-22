@@ -91,7 +91,7 @@ function Loader() {
               x: '100%',
               scale: 0.9,
               opacity: 1,
-              border: '2px solid #f0f4f1',
+              border: `2px solid ${getComputedStyle(document.documentElement).getPropertyValue('--white').trim()}`,
               borderRadius: '1.3888888889vw',
             });
 
