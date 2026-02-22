@@ -188,7 +188,6 @@
   display: flex;
   width: 25%;
   bottom: calc(var(--layout-columns-gap) * 2);
-  mix-blend-mode: difference;
   flex-direction: column;
 
   gap: calc(var(--layout-columns-gap) * 0.5);
@@ -199,6 +198,6 @@
     transform: translateY(100%);
     opacity: 0;
     font-weight: 550;
-    color: var(--white);
+    color: var(--black);
   }
 }
