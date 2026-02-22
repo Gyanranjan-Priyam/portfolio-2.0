@@ -18,7 +18,6 @@ import Loader from '@src/components/dom/Loader';
 import Navbar from '@src/components/dom/navbar/Index';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import Scrollbar from '@src/components/dom/Scrollbar';
-import Stats from '@src/components/stats/Index';
 import Tempus from '@darkroom.engineering/tempus';
 import { View } from '@react-three/drei';
 import { gsap } from 'gsap';
@@ -46,7 +45,14 @@ if (typeof window !== 'undefined') {
 }
 
 function MyApp({ Component, pageProps, router }) {
-  const [lenis, setLenis, fluidColor, isAbout] = useStore(useShallow((state) => [state.lenis, state.setLenis, state.fluidColor, state.isAbout]));
+  const [lenis, setLenis, fluidColor, isAbout] = useStore(
+    useShallow((state) => [
+      state.lenis,
+      state.setLenis,
+      state.fluidColor,
+      state.isAbout,
+    ]),
+  );
 
   const mainRef = useRef();
   const mainContainerRef = useRef();
@@ -106,7 +112,10 @@ function MyApp({ Component, pageProps, router }) {
       <Canvas
         gl={{
           pixelRatio: 0.5,
-          outputColorSpace: isAbout === false ? THREE.LinearSRGBColorSpace : THREE.SRGBColorSpace,
+          outputColorSpace:
+            isAbout === false
+              ? THREE.LinearSRGBColorSpace
+              : THREE.SRGBColorSpace,
         }}
         style={{ zIndex: 0 }}
         resize={{ debounce: { resize: 0, scroll: 0 }, polyfill: undefined }}
@@ -121,7 +130,6 @@ function MyApp({ Component, pageProps, router }) {
 
   return (
     <>
-      <Stats />
       <div className={styles.root}>
         {domElements}
         <div ref={layoutRef} id="layout" className={styles.layout}>
@@ -146,7 +154,11 @@ function MyApp({ Component, pageProps, router }) {
             </EffectComposer>
           </Canvas>
           <main ref={mainRef} className={styles.main}>
-            <div ref={mainContainerRef} id="mainContainer" className={styles.mainContainer}>
+            <div
+              ref={mainContainerRef}
+              id="mainContainer"
+              className={styles.mainContainer}
+            >
               <Layout layoutRef={layoutRef} mainRef={mainRef} router={router}>
                 <Component {...pageProps} />
               </Layout>
