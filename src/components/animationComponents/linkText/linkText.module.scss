@@ -1,0 +1,46 @@
+@import '@src/styles/functions';
+
+.root {
+  display: block;
+  position: relative;
+  overflow: hidden;
+
+  svg {
+    overflow: hidden;
+    display: inline;
+    position: absolute;
+    top: 0;
+    left: -1vw;
+    transition: transform 0.4s ease-in;
+    transform: rotate(-90deg);
+  }
+
+  span {
+    margin: 0;
+    display: inline-block;
+    position: relative;
+    transition: transform 0.4s ease-in;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: currentColor;
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.45s cubic-bezier(0.4, 0, 0.1, 1);
+    }
+
+    div {
+      display: inline-block;
+      transform: translate3d(0px, 0px, 0px);
+    }
+  }
+
+  &:hover span::after {
+    transform: scaleX(1);
+  }
+}

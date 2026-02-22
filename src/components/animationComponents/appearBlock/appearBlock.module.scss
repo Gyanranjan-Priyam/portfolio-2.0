@@ -1,0 +1,22 @@
+@import '@src/styles/functions';
+
+.block {
+  overflow: hidden;
+}
+
+.visible {
+  > * {
+    transition:
+      transform 0.55s ease-out,
+      opacity 0.55s ease-out;
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.notVisible {
+  > * {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+}

@@ -1,0 +1,44 @@
+@import '@src/styles/functions';
+
+.container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  pointer-events: none;
+  position: fixed;
+  z-index: 10000;
+  min-width: desktop-vw(240px);
+  max-width: desktop-vw(340px);
+  overflow: hidden;
+  border-radius: calc(var(--layout-columns-gap) * 0.4);
+  background-color: var(--accentColor);
+  box-shadow:
+    0 desktop-vw(1px) desktop-vw(3px) rgba(0, 0, 0, 0.06),
+    0 desktop-vw(1px) desktop-vw(2px) rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+
+  @include mobile {
+    min-width: mobile-vw(200px);
+    max-width: mobile-vw(280px);
+    border-radius: calc(var(--layout-columns-gap) * 0.35);
+  }
+}
+
+.content {
+  padding: calc(var(--layout-columns-gap) * 0.6);
+  color: var(--black);
+  font-size: 0.85vw;
+  line-height: 150%;
+  font-weight: 450;
+
+  @include mobile {
+    padding: calc(var(--layout-columns-gap) * 0.4);
+    font-size: 2.6vw;
+    line-height: 150%;
+  }
+}
