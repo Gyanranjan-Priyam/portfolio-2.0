@@ -17,20 +17,7 @@ html {
   }
 }
 
-/* Theme transition - applied globally for smooth color changes */
-html.theme-transition,
-html.theme-transition *,
-html.theme-transition *::before,
-html.theme-transition *::after {
-  transition:
-    color 0.5s ease,
-    background-color 0.5s ease,
-    border-color 0.5s ease,
-    fill 0.5s ease,
-    stroke 0.5s ease,
-    box-shadow 0.5s ease !important;
-  transition-delay: 0s !important;
-}
+/* Theme transition - CSS variables update instantly, overlay handles visual animation */
 
 main.lenis-stopped {
   overflow: hidden;
