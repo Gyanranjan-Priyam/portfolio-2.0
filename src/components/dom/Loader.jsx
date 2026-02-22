@@ -172,7 +172,18 @@ function Loader() {
             ref={fullNameRef}
             className={clsx(styles.fullName, 'h2', 'name-text')}
           >
-            {introOut ? 'Loading' : 'Gyanranjan Priyam'}
+            {introOut ? (
+              <>
+                Loading
+                <span className={styles.dots}>
+                  <span className={styles.dot}>.</span>
+                  <span className={styles.dot}>.</span>
+                  <span className={styles.dot}>.</span>
+                </span>
+              </>
+            ) : (
+              'Gyanranjan Priyam'
+            )}
           </h2>
         </div>
 

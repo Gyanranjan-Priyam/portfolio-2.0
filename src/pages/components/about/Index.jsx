@@ -111,6 +111,11 @@ function About() {
             </AppearTitle>
           )}
           <div className={clsx(styles.buttonContainer)}>
+            <ButtonLink
+              href="/resume/resume.pdf"
+              label="DOWNLOAD RESUME"
+              download
+            />
             <ButtonLink href="/about" label="ABOUT ME" />
           </div>
         </div>

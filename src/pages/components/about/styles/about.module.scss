@@ -54,6 +54,9 @@
       .buttonContainer {
         margin-top: var(--layout-columns-gap);
         width: max-content;
+        display: flex;
+        gap: var(--layout-columns-gap);
+        align-items: center;
       }
     }
     .imageContainer {
