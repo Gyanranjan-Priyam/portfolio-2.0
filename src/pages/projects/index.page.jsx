@@ -84,7 +84,9 @@ function Page() {
     <>
       <CustomHead {...seo} />
       <section className={clsx(styles.titleContainer, 'layout-block-inner')}>
-        <h1 className={clsx(styles.title, 'h1')}>All Projects</h1>
+        <h1 className={clsx(styles.title, 'h1', 'pricedown-text')}>
+          All Projects
+        </h1>
       </section>
       <section
         ref={rootRef}

@@ -36,7 +36,8 @@ function Projects() {
                 id: `projectRef-${index}`,
                 trigger: rootRef.current,
                 start: `top+=${windowSize.height * index}`,
-                end: () => `+=${(projectRefs.current.length - 1) * windowSize.height}`,
+                end: () =>
+                  `+=${(projectRefs.current.length - 1) * windowSize.height}`,
                 scrub: true,
                 scroller: document?.querySelector('main'),
                 invalidateOnRefresh: true,
@@ -61,23 +62,39 @@ function Projects() {
   return (
     <>
       <section className={clsx(styles.titleContainer, 'layout-grid-inner')}>
-        <h1 className={clsx(styles.title, 'h1')}>
+        <h1 className={clsx(styles.title, 'h1', 'pricedown-text')}>
           <AppearByWords>Featured Projects</AppearByWords>
         </h1>
       </section>
-      <section ref={rootRef} className={clsx(styles.root, 'layout-block-inner')}>
+      <section
+        ref={rootRef}
+        className={clsx(styles.root, 'layout-block-inner')}
+      >
         <div className={styles.innerContainer}>
           {newProjects.map((project, index) => (
-            <Link aria-label={`Go ${project.title}`} id={project.id} key={project.id} scroll={false} href={project.link} className={clsx(styles.card)}>
+            <Link
+              aria-label={`Go ${project.title}`}
+              id={project.id}
+              key={project.id}
+              scroll={false}
+              href={project.link}
+              className={clsx(styles.card)}
+            >
               <div
                 style={
                   !isMobile
                     ? {
-                        height: index === newProjects.length - 1 ? '200svh' : `${200 + 100 * index}svh`,
+                        height:
+                          index === newProjects.length - 1
+                            ? '200svh'
+                            : `${200 + 100 * index}svh`,
                         top: index === 0 ? '0px' : '-100svh',
                       }
                     : {
-                        height: index === newProjects.length - 1 ? '100svh' : `${200 + 100 * index}svh`,
+                        height:
+                          index === newProjects.length - 1
+                            ? '100svh'
+                            : `${200 + 100 * index}svh`,
                         top: index === 0 ? '0px' : '-50svh',
                       }
                 }
@@ -89,12 +106,33 @@ function Projects() {
                     <h3 className="h3">{project.title}</h3>
                   </div>
                   <div className={styles.imageContainer}>
-                    <Image src={project.img} fill sizes="100%" alt={project.title} />
+                    <Image
+                      src={project.img}
+                      fill
+                      sizes="100%"
+                      alt={project.title}
+                    />
                   </div>
                 </div>
               </div>
-              <div ref={(el) => (projectRefs.current[index] = el)} className={styles.canvas}>
-                <Image priority className={index === 0 ? styles.firstCard : index === newProjects.length - 1 ? styles.lastCard : undefined} src={project.img} fill sizes="100%" alt={project.title} />
+              <div
+                ref={(el) => (projectRefs.current[index] = el)}
+                className={styles.canvas}
+              >
+                <Image
+                  priority
+                  className={
+                    index === 0
+                      ? styles.firstCard
+                      : index === newProjects.length - 1
+                        ? styles.lastCard
+                        : undefined
+                  }
+                  src={project.img}
+                  fill
+                  sizes="100%"
+                  alt={project.title}
+                />
               </div>
             </Link>
           ))}

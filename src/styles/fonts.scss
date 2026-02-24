@@ -13,8 +13,12 @@
 }
 
 :root {
-  --font-heading: 'Pricedown';
-  --font-body: 'Mokoto';
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+  --font-code: 'JetBrains Mono', monospace;
+  --font-name: 'Mokoto';
+  --font-loader: 'Pricedown';
+  --font-blog-body: 'Comic Neue', 'Comic Sans MS', cursive;
 }
 
 body {

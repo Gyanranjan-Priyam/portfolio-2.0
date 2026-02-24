@@ -7,8 +7,10 @@
   .title {
     grid-column: 1 / 10;
     padding-bottom: calc(var(--layout-columns-gap) * 1);
+    font-size: 4.8vw;
     @include mobile {
       grid-column: 1 / 7;
+      font-size: 7.8vw;
     }
   }
 }

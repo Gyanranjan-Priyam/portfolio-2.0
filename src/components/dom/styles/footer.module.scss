@@ -148,6 +148,7 @@
   }
 
   .priyam {
+    font-family: var(--font-name), sans-serif;
     @include mobile {
       grid-column: 1 / 6;
       font-size: 22.2vw;

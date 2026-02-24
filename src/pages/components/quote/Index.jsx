@@ -13,10 +13,12 @@ function Quote() {
 
   return (
     <section ref={rootRef} className={clsx(styles.root, 'layout-block-inner')}>
-      <h3 ref={textRef} className={clsx(styles.text, 'h3')}>
+      <h3 ref={textRef} className={clsx(styles.text, 'h3', 'pricedown-text')}>
         {!isLoading && (
           <TextOpacity textRef={textRef.current} trigger={rootRef.current}>
-            When starting a new project, it&apos;s crucial to choose the appropriate tools. With prior experience in this area, I am confident in selecting the tools that will guide us to success.
+            When starting a new project, it&apos;s crucial to choose the
+            appropriate tools. With prior experience in this area, I am
+            confident in selecting the tools that will guide us to success.
           </TextOpacity>
         )}
       </h3>

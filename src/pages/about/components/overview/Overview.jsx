@@ -1,5 +1,6 @@
 import AppearBlock from '@src/components/animationComponents/appearBlock/Index';
 import AppearTitle from '@src/components/animationComponents/appearTitle/Index';
+import Image from 'next/image';
 import TooltipCard from '@src/components/animationComponents/tooltipCard/Index';
 import clsx from 'clsx';
 import styles from '@src/pages/about/components/overview/styles/overview.module.scss';
@@ -39,9 +40,16 @@ function Overview() {
           </AppearTitle>
         )}
       </div>
-      <div className={clsx(styles.text, 'p-l', styles.myStory)}>
+      <div className={clsx(styles.myStory)}>
         <AppearTitle>
-          <span>Some words</span>
+          <div className={styles.illustrationContainer}>
+            <Image
+              src="/priyams/illustration.webp"
+              alt="Developer Illustration"
+              fill
+              sizes="100%"
+            />
+          </div>
         </AppearTitle>
       </div>
       <div className={styles.desc}>
@@ -83,7 +91,7 @@ function Overview() {
             <h6 className={clsx(styles.paddingTop, 'h6')}>
               I’m excited to collaborate and build impactful products.
             </h6>
-            <h6 className={clsx(styles.paddingTop, 'h6')}>
+            <h6 className={clsx(styles.paddingTop, 'h6', 'name-text')}>
               Gyanranjan Priyam.
             </h6>
           </AppearTitle>
@@ -119,7 +127,7 @@ function Overview() {
             <h6 className={clsx(styles.paddingTop, 'h6')}>
               I’m excited to collaborate and create meaningful products.
             </h6>
-            <h6 className={clsx(styles.paddingTop, 'h6')}>
+            <h6 className={clsx(styles.paddingTop, 'h6', 'name-text')}>
               Gyanranjan Priyam.
             </h6>
           </AppearTitle>

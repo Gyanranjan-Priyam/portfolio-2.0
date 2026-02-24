@@ -1,6 +1,7 @@
 @import '@src/styles/functions';
 
 .btnPosnawr {
+  font-family: var(--font-name), sans-serif !important;
   position: relative;
   overflow: hidden;
   height: 2.5vw;
@@ -53,6 +54,7 @@
     z-index: 2;
     line-height: 46%;
     color: var(--black);
+    font-family: inherit !important;
     @include mobile {
       line-height: 100%;
     }

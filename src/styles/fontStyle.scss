@@ -133,5 +133,17 @@
 }
 
 .name-text {
-  font-family: var(--font-body), sans-serif !important;
+  font-family: var(--font-name), sans-serif !important;
+}
+
+.code-text {
+  font-family: var(--font-code), monospace;
+}
+
+.loader-number {
+  font-family: var(--font-loader), sans-serif !important;
+}
+
+.pricedown-text {
+  font-family: var(--font-loader), sans-serif !important;
 }

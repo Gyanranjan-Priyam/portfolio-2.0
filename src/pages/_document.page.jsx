@@ -5,35 +5,15 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
-            href="/fonts/NeueHaasDisplayBold.woff2"
-            as="font"
-            type="font/woff2"
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="anonymous"
           />
           <link
-            href="/fonts/NeueHaasDisplayLight.woff2"
-            as="font"
-            type="font/woff2"
-          />
-          <link
-            href="/fonts/NeueHaasDisplayLightItalic.woff2"
-            as="font"
-            type="font/woff2"
-          />
-          <link
-            href="/fonts/NeueHaasDisplayMedium.woff2"
-            as="font"
-            type="font/woff2"
-          />
-          <link
-            href="/fonts/NeueHaasDisplayRoman.woff2"
-            as="font"
-            type="font/woff2"
-          />
-          <link
-            href="/fonts/NeueHaasDisplayRomanItalic.woff2"
-            as="font"
-            type="font/woff2"
+            href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+            rel="stylesheet"
           />
         </Head>
         <body>

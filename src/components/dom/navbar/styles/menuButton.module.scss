@@ -1,5 +1,6 @@
 @import '@src/styles/functions';
 .button {
+  font-family: var(--font-name), sans-serif !important;
   height: 2.5vw;
   @include mobile {
     height: 6vw;
@@ -10,6 +11,7 @@
     0 0.32vw 0.52vw #0000000a,
     0 0.12vw 0.22vw #0000000a;
   .label {
+    font-family: inherit !important;
     @include mobile {
       padding: 0 3vw 0 3vw;
     }

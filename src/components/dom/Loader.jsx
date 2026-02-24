@@ -200,7 +200,10 @@ function Loader() {
 
         {!introOut && (
           <div className={styles.progressContainer}>
-            <h1 ref={progressRef} className={clsx(styles.progress, 'h1')}>
+            <h1
+              ref={progressRef}
+              className={clsx(styles.progress, 'h1', 'loader-number')}
+            >
               0%
             </h1>
           </div>

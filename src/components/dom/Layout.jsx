@@ -1,4 +1,10 @@
-import React, { useCallback, useMemo, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import {
   Transition as ReactTransition,
   SwitchTransition,
@@ -10,6 +16,10 @@ import gsap from 'gsap';
 import styles from '@src/components/dom/styles/layout.module.scss';
 import { useShallow } from 'zustand/react/shallow';
 import { useStore } from '@src/store';
+
+function isBlogRoute(path) {
+  return path === '/blogs' || path.startsWith('/blogs/');
+}
 
 function Layout({ children, layoutRef, mainRef, router }) {
   const [lenis, introOut, setIsLoading, isMenuOpen, setIsMenuOpen, setIsAbout] =
@@ -26,14 +36,56 @@ function Layout({ children, layoutRef, mainRef, router }) {
 
   const enterTimelineRef = useRef();
   const exitTimelineRef = useRef();
+  const prevPathRef = useRef(router.asPath);
+  const nextPathRef = useRef(null);
 
   const [isEntering, setIsEntering] = useState(false);
+
+  // Track navigation target so we know where we're heading during exit
+  const [isBlogNav, setIsBlogNav] = useState(false);
+
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      nextPathRef.current = url;
+      const from = isBlogRoute(prevPathRef.current);
+      const to = isBlogRoute(url);
+      setIsBlogNav(from && to);
+    };
+    router.events.on('routeChangeStart', handleRouteChange);
+    return () => router.events.off('routeChangeStart', handleRouteChange);
+  }, [router.events]);
 
   const menuTime = useMemo(() => (isMenuOpen ? 0.8 : 0), [isMenuOpen]);
 
   const handleEnter = useCallback(
     () => {
       if (introOut) {
+        const fromBlog = isBlogRoute(prevPathRef.current);
+        const toBlog = isBlogRoute(router.asPath);
+        const skipTransition = fromBlog && toBlog;
+        prevPathRef.current = router.asPath;
+
+        if (skipTransition) {
+          // Instant transition for blog-to-blog navigation
+          gsap.set(layoutRef.current, { height: '100%', opacity: 1 });
+          gsap.set(mainRef.current, {
+            x: '0px',
+            scale: 1,
+            borderRadius: 0,
+            height: 'auto',
+            border: 'none',
+            pointerEvents: 'auto',
+          });
+          gsap.set('#loader', { x: '-100%' });
+          gsap.set('header', { autoAlpha: 1 });
+          setIsAbout(false);
+          setIsLoading(false);
+          setIsBlogNav(false);
+          lenis.start();
+          lenis.scrollTo(0, { force: true, immediate: true });
+          return;
+        }
+
         if (exitTimelineRef.current) exitTimelineRef.current.pause();
 
         const tl = gsap.timeline({
@@ -121,6 +173,19 @@ function Layout({ children, layoutRef, mainRef, router }) {
   const handleExit = useCallback(
     () => {
       if (introOut) {
+        const fromBlog = isBlogRoute(prevPathRef.current);
+        const toBlog = nextPathRef.current
+          ? isBlogRoute(nextPathRef.current)
+          : false;
+
+        if (fromBlog && toBlog) {
+          // Skip exit animation for blog-to-blog navigation
+          lenis.stop();
+          if (isMenuOpen) setIsMenuOpen(false);
+          lenis.scrollTo(0, { force: true });
+          return;
+        }
+
         if (enterTimelineRef.current) enterTimelineRef.current.pause();
 
         lenis.stop();
@@ -230,8 +295,8 @@ function Layout({ children, layoutRef, mainRef, router }) {
           in={false}
           unmountOnExit
           timeout={{
-            enter: introOut ? 4500 : 0,
-            exit: introOut ? 2550 : 0,
+            enter: introOut ? (isBlogNav ? 50 : 4500) : 0,
+            exit: introOut ? (isBlogNav ? 50 : 2550) : 0,
           }}
           onEnter={handleEnter}
           onExit={handleExit}

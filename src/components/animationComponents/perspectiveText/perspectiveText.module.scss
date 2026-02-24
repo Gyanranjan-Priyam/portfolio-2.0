@@ -33,6 +33,7 @@
 
   p,
   a {
+    font-family: inherit !important;
     color: var(--menuFontColor);
     transition: all 0.45s cubic-bezier(0.4, 0, 0.1, 1);
     text-transform: uppercase;

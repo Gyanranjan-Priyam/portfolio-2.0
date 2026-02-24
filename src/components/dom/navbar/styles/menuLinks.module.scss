@@ -63,7 +63,7 @@
   margin-bottom: calc(var(--layout-columns-gap) * 2);
   &::before {
     position: relative;
-    font-family: var(--font-heading), sans-serif;
+    font-family: var(--font-loader), sans-serif;
     font-size: 2.3vw;
     line-height: 130%;
     font-weight: normal;
@@ -100,7 +100,7 @@
 }
 
 .menuListItem {
-  font-family: var(--font-body), sans-serif;
+  font-family: var(--font-name), sans-serif;
   font-weight: normal;
   position: relative;
   width: fit-content;
