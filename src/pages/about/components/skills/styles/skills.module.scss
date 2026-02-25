@@ -1,0 +1,117 @@
+@import '@src/styles/functions';
+
+.root {
+  position: relative;
+  background-color: var(--white);
+}
+
+.header {
+  grid-column: 5 / 16;
+  padding-bottom: calc(var(--layout-columns-gap) * 1.5);
+
+  @include mobile {
+    grid-column: 1 / 7;
+    padding-bottom: calc(var(--layout-columns-gap) * 1);
+  }
+}
+
+.sectionLabel {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  opacity: 0.5;
+  padding-bottom: calc(var(--layout-columns-gap) * 0.4);
+}
+
+.categories {
+  grid-column: 5 / 16;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: calc(var(--layout-columns-gap) * 2);
+
+  @include mobile {
+    grid-column: 1 / 7;
+    grid-template-columns: 1fr;
+    gap: calc(var(--layout-columns-gap) * 1.5);
+  }
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--layout-columns-gap) * 0.6);
+}
+
+.categoryTitle {
+  color: var(--black);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding-bottom: calc(var(--layout-columns-gap) * 0.3);
+  border-bottom: desktop-vw(1px) solid var(--black);
+  opacity: 0.4;
+
+  @include mobile {
+    border-bottom-width: mobile-vw(1px);
+  }
+}
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--layout-columns-gap) * 0.35);
+}
+
+.skillItem {
+  display: inline-flex;
+  align-items: center;
+  gap: desktop-vw(6px);
+  padding: desktop-vw(6px) desktop-vw(14px);
+  border: desktop-vw(1px) solid var(--black);
+  border-radius: 100px;
+  color: var(--black);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.2s ease;
+  cursor: default;
+
+  @include mobile {
+    gap: mobile-vw(5px);
+    padding: mobile-vw(5px) mobile-vw(10px);
+    border-width: mobile-vw(1px);
+  }
+
+  &:hover {
+    background-color: var(--black);
+    color: var(--white);
+    transform: translateY(desktop-vw(-2px));
+
+    @include mobile {
+      transform: none;
+    }
+
+    .skillIcon {
+      filter: invert(1);
+    }
+  }
+}
+
+.skillIcon {
+  width: desktop-vw(16px);
+  height: desktop-vw(16px);
+  object-fit: contain;
+  transition: filter 0.3s ease;
+
+  @include mobile {
+    width: mobile-vw(14px);
+    height: mobile-vw(14px);
+  }
+}
+
+html[data-theme='dark'] .skillIcon {
+  filter: invert(1);
+}
+
+html[data-theme='dark'] .skillItem:hover .skillIcon {
+  filter: invert(0);
+}

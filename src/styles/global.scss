@@ -24,12 +24,6 @@ main.lenis-stopped {
 }
 
 body {
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Old versions of Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
   max-height: 100%;
   overflow: hidden;
   background-color: var(--white);
@@ -117,4 +111,16 @@ main > div > section:nth-last-child(1) {
 .trigger-footer {
   height: 10px;
   width: 100%;
+}
+
+/* Accessibility: Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -7,6 +7,7 @@ import Link from 'next/link';
 import clsx from 'clsx';
 import { gsap } from 'gsap';
 import projects from '@src/constants/projects';
+import { shimmerBlurDataUrl } from '@src/utils/shimmer';
 import styles from '@src/pages/projects/projects.module.scss';
 import useIsMobile from '@src/hooks/useIsMobile';
 import { useIsomorphicLayoutEffect } from '@src/hooks/useIsomorphicLayoutEffect';
@@ -126,6 +127,9 @@ function Page() {
                   <div className={styles.projectsDetails}>
                     <h6 className={clsx(styles.text, 'h6')}>{project.date}</h6>
                     <h3 className={clsx(styles.text, 'h3')}>{project.title}</h3>
+                    <span className={clsx(styles.categoryBadge, 'p-xs')}>
+                      {project.company}
+                    </span>
                   </div>
                   <div className={styles.imageContainer}>
                     <Image
@@ -134,6 +138,8 @@ function Page() {
                       src={project.img}
                       fill
                       alt={project.title}
+                      placeholder="blur"
+                      blurDataURL={shimmerBlurDataUrl(1920, 900)}
                     />
                   </div>
                 </div>
@@ -157,6 +163,8 @@ function Page() {
                   src={project.img}
                   fill
                   alt={project.title}
+                  placeholder="blur"
+                  blurDataURL={shimmerBlurDataUrl(1920, 900)}
                 />
               </div>
             </Link>

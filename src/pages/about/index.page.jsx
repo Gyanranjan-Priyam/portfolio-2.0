@@ -1,6 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import Hero from '@src/pages/about/components/hero/Hero';
 import Overview from '@src/pages/about/components/overview/Overview';
+import Timeline from '@src/pages/about/components/timeline/Timeline';
+import Skills from '@src/pages/about/components/skills/Skills';
 import Services from '@src/pages/about/components/services/Services';
 import Process from '@src/pages/about/components/process/Process';
 import CustomHead from '@src/components/dom/CustomHead';
@@ -31,6 +33,8 @@ function Page() {
 
       <Hero />
       <Overview />
+      <Timeline />
+      <Skills />
       <Services />
       <Process />
     </>

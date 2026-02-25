@@ -11,6 +11,7 @@ import {
 } from 'react-transition-group';
 
 import Footer from '@src/components/dom/Footer';
+import ContactSection from '@src/components/dom/contact/ContactSection';
 import PreFooter from '@src/components/dom/PreFooter';
 import gsap from 'gsap';
 import styles from '@src/components/dom/styles/layout.module.scss';
@@ -110,7 +111,7 @@ function Layout({ children, layoutRef, mainRef, router }) {
               setIsEntering(false);
             },
           },
-          2.5,
+          1.5,
         )
           .to(
             '#loader',
@@ -118,7 +119,7 @@ function Layout({ children, layoutRef, mainRef, router }) {
               x: '-100%',
               ease: 'power2.inOut',
             },
-            2.5,
+            1.5,
           )
           .to(
             mainRef.current,
@@ -126,7 +127,7 @@ function Layout({ children, layoutRef, mainRef, router }) {
               ease: 'power2.inOut',
               x: '0px',
             },
-            2.5,
+            1.5,
           )
           .to(
             mainRef.current,
@@ -135,7 +136,7 @@ function Layout({ children, layoutRef, mainRef, router }) {
               borderRadius: 0,
               scale: 1,
             },
-            3,
+            2,
           )
           .to(
             layoutRef.current,
@@ -144,7 +145,7 @@ function Layout({ children, layoutRef, mainRef, router }) {
               height: '100%',
               opacity: 1,
             },
-            3,
+            2,
           )
           .to(
             'header',
@@ -152,7 +153,7 @@ function Layout({ children, layoutRef, mainRef, router }) {
               ease: 'power2.inOut',
               autoAlpha: 1,
             },
-            3.3,
+            2.2,
           )
           .to(
             mainRef.current,
@@ -162,7 +163,7 @@ function Layout({ children, layoutRef, mainRef, router }) {
               border: 'none',
               pointerEvents: 'auto',
             },
-            3.3,
+            2.2,
           );
       }
     },
@@ -295,8 +296,8 @@ function Layout({ children, layoutRef, mainRef, router }) {
           in={false}
           unmountOnExit
           timeout={{
-            enter: introOut ? (isBlogNav ? 50 : 4500) : 0,
-            exit: introOut ? (isBlogNav ? 50 : 2550) : 0,
+            enter: introOut ? (isBlogNav ? 50 : 3000) : 0,
+            exit: introOut ? (isBlogNav ? 50 : 1800) : 0,
           }}
           onEnter={handleEnter}
           onExit={handleExit}
@@ -305,6 +306,7 @@ function Layout({ children, layoutRef, mainRef, router }) {
         </ReactTransition>
       </SwitchTransition>
 
+      <ContactSection />
       <PreFooter />
       <footer className={styles.footer}>
         <Footer />

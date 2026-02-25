@@ -103,7 +103,7 @@ function Page({ id }) {
 
   return (
     <>
-      <CustomHead {...seo} />
+      <CustomHead {...seo} project={currentProject} />
       <section className={clsx(styles.root, 'layout-grid-inner')}>
         <div ref={leftContainerRef} className={styles.leftContainer}>
           <ProjectDetails project={currentProject} />

@@ -1,0 +1,296 @@
+@import '@src/styles/functions';
+
+.root {
+  position: relative;
+  background-color: var(--white);
+  overflow: visible;
+}
+
+.header {
+  grid-column: 1 / 17;
+  text-align: center;
+  padding-bottom: calc(var(--layout-columns-gap) * 2.5);
+
+  @include mobile {
+    grid-column: 1 / 7;
+    text-align: left;
+    padding-bottom: calc(var(--layout-columns-gap) * 1.5);
+  }
+}
+
+.sectionLabel {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  opacity: 0.5;
+  padding-bottom: calc(var(--layout-columns-gap) * 0.4);
+}
+
+// ─── Snake Timeline Container ───
+.timeline {
+  grid-column: 2 / 16;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--layout-columns-gap) * 2);
+
+  @include mobile {
+    grid-column: 1 / 7;
+    gap: calc(var(--layout-columns-gap) * 1.5);
+  }
+}
+
+// ─── SVG Snake Path ───
+.snakeSvg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: visible;
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.snakePath {
+  stroke: var(--black);
+  stroke-width: desktop-vw(1.5px);
+  opacity: 0.12;
+  vector-effect: non-scaling-stroke;
+}
+
+// ─── Paper Plane ───
+.paperPlane {
+  will-change: transform;
+  filter: drop-shadow(0 desktop-vw(2px) desktop-vw(4px) rgba(0, 0, 0, 0.1));
+
+  @include mobile {
+    display: none;
+  }
+}
+
+// ─── Snake Row (alternating left/right) ───
+.snakeRow {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: calc(var(--layout-columns-gap) * 1.5);
+  z-index: 1;
+
+  @include mobile {
+    flex-direction: row !important;
+    gap: calc(var(--layout-columns-gap) * 0.8);
+  }
+}
+
+.snakeLeft {
+  flex-direction: row;
+  justify-content: flex-start;
+
+  .card {
+    margin-right: auto;
+  }
+
+  @include mobile {
+    .card {
+      margin-right: 0;
+    }
+  }
+}
+
+.snakeRight {
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+
+  .card {
+    margin-left: auto;
+    text-align: right;
+
+    .cardHeader {
+      justify-content: flex-end;
+    }
+
+    .tags {
+      justify-content: flex-end;
+    }
+  }
+
+  @include mobile {
+    flex-direction: row !important;
+
+    .card {
+      margin-left: 0;
+      text-align: left;
+
+      .cardHeader {
+        justify-content: flex-start;
+      }
+
+      .tags {
+        justify-content: flex-start;
+      }
+    }
+  }
+}
+
+// ─── Dot Marker ───
+.dot {
+  flex-shrink: 0;
+  width: desktop-vw(48px);
+  height: desktop-vw(48px);
+  border-radius: 50%;
+  background-color: var(--black);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  margin-top: desktop-vw(10px);
+  box-shadow:
+    0 0 0 desktop-vw(4px) var(--white),
+    0 0 0 desktop-vw(5.5px) var(--black);
+
+  @include mobile {
+    width: mobile-vw(36px);
+    height: mobile-vw(36px);
+    margin-top: mobile-vw(6px);
+    box-shadow:
+      0 0 0 mobile-vw(3px) var(--white),
+      0 0 0 mobile-vw(4.5px) var(--black);
+  }
+}
+
+.dotIndex {
+  font-family: var(--font-heading), sans-serif;
+  font-size: desktop-vw(12px);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+
+  @include mobile {
+    font-size: mobile-vw(10px);
+  }
+}
+
+// ─── Card ───
+.card {
+  position: relative;
+  width: 45%;
+  will-change: transform, opacity;
+
+  @include mobile {
+    width: calc(100% - #{mobile-vw(50px)});
+  }
+}
+
+.cardClip {
+  width: 100%;
+  height: desktop-vw(6px);
+  display: block;
+  margin-bottom: desktop-vw(8px);
+
+  @include mobile {
+    height: mobile-vw(5px);
+    margin-bottom: mobile-vw(6px);
+  }
+}
+
+.cardInner {
+  position: relative;
+  padding: desktop-vw(20px) desktop-vw(24px);
+  border: desktop-vw(1px) solid var(--black);
+  border-radius: desktop-vw(12px);
+  opacity: 0.85;
+  transition:
+    opacity 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+
+  @include mobile {
+    padding: mobile-vw(14px) mobile-vw(16px);
+    border-width: mobile-vw(1px);
+    border-radius: mobile-vw(8px);
+  }
+
+  &:hover {
+    opacity: 1;
+    box-shadow: 0 desktop-vw(4px) desktop-vw(20px) rgba(0, 0, 0, 0.06);
+
+    @include mobile {
+      box-shadow: none;
+    }
+  }
+}
+
+.cardHeader {
+  display: flex;
+  align-items: baseline;
+  gap: calc(var(--layout-columns-gap) * 0.5);
+  flex-wrap: wrap;
+  padding-bottom: calc(var(--layout-columns-gap) * 0.25);
+}
+
+.role {
+  color: var(--black);
+}
+
+.date {
+  opacity: 0.45;
+  white-space: nowrap;
+  padding: desktop-vw(2px) desktop-vw(8px);
+  border: desktop-vw(0.75px) solid var(--black);
+  border-radius: 100px;
+  opacity: 0.35;
+
+  @include mobile {
+    padding: mobile-vw(2px) mobile-vw(6px);
+    border-width: mobile-vw(0.75px);
+  }
+}
+
+.company {
+  display: inline-block;
+  color: var(--black);
+  opacity: 0.65;
+  padding-bottom: calc(var(--layout-columns-gap) * 0.15);
+}
+
+.description {
+  color: var(--black);
+  opacity: 0.6;
+  line-height: 170%;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: calc(var(--layout-columns-gap) * 0.25);
+  padding-top: calc(var(--layout-columns-gap) * 0.45);
+}
+
+.tag {
+  display: inline-block;
+  padding: desktop-vw(3px) desktop-vw(10px);
+  border: desktop-vw(1px) solid var(--black);
+  border-radius: 100px;
+  opacity: 0.4;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  transition:
+    opacity 0.3s ease,
+    background-color 0.3s ease,
+    color 0.3s ease;
+
+  @include mobile {
+    padding: mobile-vw(3px) mobile-vw(8px);
+    border-width: mobile-vw(1px);
+  }
+
+  .cardInner:hover & {
+    opacity: 0.6;
+  }
+}

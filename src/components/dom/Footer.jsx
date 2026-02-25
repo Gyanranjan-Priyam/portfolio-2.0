@@ -169,7 +169,9 @@ function Footer() {
         }}
       >
         <AppearTitle isFooter>
-          <div className="p-x">© 2025 · Gyanranjan Priyam</div>
+          <div className="p-x">
+            © {new Date().getFullYear()} · Gyanranjan Priyam
+          </div>
           <div className={clsx('p-x', styles.middleText)}>
             All Rights Reserved
           </div>

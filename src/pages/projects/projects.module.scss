@@ -123,6 +123,23 @@
               color: var(--white);
               text-shadow: unset;
             }
+            .categoryBadge {
+              display: inline-block;
+              padding: desktop-vw(4px) desktop-vw(14px);
+              border: desktop-vw(1px) solid var(--white);
+              border-radius: 100px;
+              color: var(--white);
+              width: fit-content;
+              letter-spacing: 0.08em;
+              text-transform: uppercase;
+              opacity: 0.7;
+              transition: all 0.6s cubic-bezier(0.4, 0, 0.1, 1);
+
+              @include mobile {
+                padding: mobile-vw(3px) mobile-vw(10px);
+                border-width: mobile-vw(1px);
+              }
+            }
           }
           .imageContainer {
             position: absolute;

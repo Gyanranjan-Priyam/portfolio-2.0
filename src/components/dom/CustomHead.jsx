@@ -6,7 +6,7 @@ const SITE_URL = 'https://gyanranjanpriyam.tech';
 const OG_IMAGE =
   'https://res.cloudinary.com/dw47ib0sh/image/upload/v1766402986/ls67mu0pkqalizjmvuyf.png';
 
-const getSchema = () => ({
+const getPersonSchema = () => ({
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: 'Gyanranjan Priyam',
@@ -20,9 +20,45 @@ const getSchema = () => ({
   ],
   description:
     'Full Stack Developer working at the intersection of web development, app development, and AI/ML to build scalable digital products people actually use.',
+  knowsAbout: [
+    'React',
+    'Next.js',
+    'Node.js',
+    'Three.js',
+    'TypeScript',
+    'MongoDB',
+    'PostgreSQL',
+    'Full Stack Development',
+    'WebGL',
+    'GSAP',
+  ],
 });
 
-function CustomHead({ title = '', description, keywords }) {
+const getProjectSchema = (project) => {
+  if (!project) return null;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    name: project.title,
+    description: project.desc?.[0] || '',
+    url: project.liveLink || `${SITE_URL}${project.link}`,
+    image: project.img,
+    dateCreated: project.date,
+    creator: {
+      '@type': 'Person',
+      name: 'Gyanranjan Priyam',
+      url: SITE_URL,
+    },
+    ...(project.github && {
+      codeRepository: project.github,
+    }),
+  };
+};
+
+function CustomHead({ title = '', description, keywords, project }) {
+  const schemas = [getPersonSchema()];
+  const projectSchema = getProjectSchema(project);
+  if (projectSchema) schemas.push(projectSchema);
   return (
     <>
       <NextHead>
@@ -98,11 +134,14 @@ function CustomHead({ title = '', description, keywords }) {
         <meta name="theme-color" content="#f0f4f1" />
 
         {/* Schema */}
-        {/* eslint-disable-next-line react/no-danger */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(getSchema()) }}
-        />
+        {schemas.map((schema, i) => (
+          // eslint-disable-next-line react/no-danger, react/no-array-index-key
+          <script
+            key={`schema-${i}`}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          />
+        ))}
       </NextHead>
       <NextSeo title={title} description={description} />
     </>
@@ -113,10 +152,12 @@ CustomHead.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   keywords: PropTypes.arrayOf(PropTypes.string),
+  project: PropTypes.object,
 };
 
 CustomHead.defaultProps = {
   keywords: [],
+  project: null,
 };
 
 export default CustomHead;

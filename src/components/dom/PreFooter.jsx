@@ -8,10 +8,10 @@ function PreFooter() {
       <div className={styles.textsContainer}>
         <div>
           <h2 className={clsx('h1', 'pricedown-text')}>
-            Let&apos;s slice through
+            Let&apos;s build a
           </h2>
-          <h2 className={clsx('h1', 'pricedown-text')}> your next challenge</h2>
-          <h2 className={clsx('h1', 'pricedown-text')}> together!</h2>
+          <h2 className={clsx('h1', 'pricedown-text')}> memorable & inspiring</h2>
+          <h2 className={clsx('h1', 'pricedown-text')}>web application together!</h2>
         </div>
         <div>
           <h6 className="h6">

@@ -14,7 +14,7 @@ function Overview() {
       <div className={styles.title}>
         {isMobile ? (
           <AppearTitle key="mobile-queto">
-            <h3 className="h3">The front-end developer&apos;s role </h3>
+            <h3 className="h3">The full-stack developer&apos;s role </h3>
             <h3 className="h3">
               is like a kind host, <span className="medium">ensuring</span>
             </h3>
@@ -28,7 +28,7 @@ function Overview() {
         ) : (
           <AppearTitle key="desktop-queto">
             <h3 className="h3">
-              The front-end developer&apos;s role is like a
+              The full-stack developer&apos;s role is like a
             </h3>
             <h3 className="h3">
               kind host, <span className="medium">ensuring</span> visitors have
