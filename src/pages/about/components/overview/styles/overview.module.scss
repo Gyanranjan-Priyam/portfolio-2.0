@@ -1,5 +1,29 @@
 @import '@src/styles/functions';
 
+// ─── Tooltip image card (portal-rendered, must be top-level) ───
+.tooltipImageCard {
+  display: flex;
+  flex-direction: column;
+  gap: desktop-vw(10px);
+  width: 240px;
+}
+
+.tooltipImageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: desktop-vw(6px);
+  overflow: hidden;
+}
+
+.tooltipImageCaption {
+  font-family: var(--font-body), sans-serif;
+  font-size: desktop-vw(13px);
+  line-height: 160%;
+  color: var(--black);
+}
+
+// ─── Rest of Overview ───
 .root {
   position: relative;
   background-color: var(--white);
@@ -21,26 +45,51 @@
     grid-column: 5 / 8;
     @include mobile {
       grid-column: 1 / 7;
+      grid-row: auto;
     }
   }
   .illustrationContainer {
-    position: relative;
-    width: 100%;
+    position: sticky;
+    top: calc(var(--layout-columns-gap) * 2);
+    width: 100%108;
     aspect-ratio: 1 / 1;
     img {
       object-fit: contain;
+      object-position: top;
+    }
+
+    @include mobile {
+      position: relative;
+      top: auto;
+      aspect-ratio: 1 / 1;
     }
   }
   .desc {
     padding-top: calc(var(--layout-columns-gap) * 2);
     grid-column: 8 / 16;
+    grid-row: 1;
 
     @include mobile {
       grid-column: 1 / 7;
+      grid-row: auto;
     }
-    .paddingTop {
-      display: inline-block;
-      padding-top: var(--layout-columns-gap);
+  }
+
+  .descText {
+    font-family: var(--font-body), sans-serif;
+    font-size: desktop-vw(18px);
+    line-height: 175%;
+    font-weight: 400;
+    color: var(--black);
+    margin-bottom: var(--layout-columns-gap);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include mobile {
+      font-size: mobile-vw(15px);
+      line-height: 170%;
     }
   }
 
@@ -55,15 +104,14 @@
   }
 
   .sectionTitle {
-    display: inline-block;
+    display: block;
+    text-align: left;
+    font-family: var(--font-loader), sans-serif;
+    font-size: 3vw;
     padding-bottom: calc(var(--layout-columns-gap) * 0.6);
-    text-decoration: underline;
-    text-underline-offset: desktop-vw(4px);
-    text-decoration-thickness: desktop-vw(1.5px);
 
     @include mobile {
-      text-underline-offset: mobile-vw(3px);
-      text-decoration-thickness: mobile-vw(1.5px);
+      font-size: 6vw;
       padding-bottom: calc(var(--layout-columns-gap) * 0.4);
     }
   }

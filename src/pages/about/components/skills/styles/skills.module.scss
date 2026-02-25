@@ -6,7 +6,8 @@
 }
 
 .header {
-  grid-column: 5 / 16;
+  grid-column: 1 / 17;
+  text-align: left;
   padding-bottom: calc(var(--layout-columns-gap) * 1.5);
 
   @include mobile {

@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import Hero from '@src/pages/about/components/hero/Hero';
 import Overview from '@src/pages/about/components/overview/Overview';
+import ScatterQuote from '@src/pages/about/components/scatterQuote/Index';
 import Timeline from '@src/pages/about/components/timeline/Timeline';
 import Skills from '@src/pages/about/components/skills/Skills';
 import Services from '@src/pages/about/components/services/Services';
@@ -30,13 +30,12 @@ function Page() {
   return (
     <>
       <CustomHead {...seo} />
-
-      <Hero />
+      <ScatterQuote />
       <Overview />
       <Timeline />
       <Skills />
-      <Services />
-      <Process />
+      {/* <Services />
+      <Process /> */}
     </>
   );
 }

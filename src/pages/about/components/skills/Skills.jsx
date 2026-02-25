@@ -11,7 +11,7 @@ function Skills() {
       <div className={styles.header}>
         <AppearTitle>
           <p className={clsx(styles.sectionLabel, 'p-x')}>Tech Stack</p>
-          <h3 className="h3">Skills &amp; Technologies</h3>
+          <h3 className="h3 pricedown-text">Skills &amp; Technologies</h3>
         </AppearTitle>
       </div>
 

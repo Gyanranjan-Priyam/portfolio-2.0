@@ -194,7 +194,7 @@ function Timeline() {
       <div className={styles.header}>
         <AppearTitle>
           <p className={clsx(styles.sectionLabel, 'p-x')}>Experience</p>
-          <h3 className="h3">Journey So Far</h3>
+          <h3 className="h3 pricedown-text">Journey So Far</h3>
         </AppearTitle>
       </div>
 

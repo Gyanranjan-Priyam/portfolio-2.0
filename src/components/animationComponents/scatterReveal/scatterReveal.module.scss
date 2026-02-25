@@ -1,0 +1,41 @@
+@import '@src/styles/functions';
+
+// ─── Scatter hero section (sits above content while scattering) ───
+.scatterHero {
+  position: relative;
+  z-index: 2;
+  background-color: var(--white);
+  width: 100%;
+  height: 200svh;
+}
+
+// ─── Sticky centered text wrapper ───
+.scatterText {
+  text-align: center;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100svh;
+}
+
+// ─── Inner text container (SplitType target) ───
+.scatterTextInner {
+  perspective: 1000px;
+  width: 63%;
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+// ─── Content revealed from behind at 75% scatter progress ───
+.scatterContent {
+  position: relative;
+  z-index: 1;
+  margin-top: -100svh;
+  background-color: var(--white);
+}
