@@ -5,6 +5,11 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <script
+            src="https://analytics.ahrefs.com/analytics.js"
+            data-key="HFM9ucf4ebY4chd5hRuhqA"
+            async
+          />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             rel="preconnect"
