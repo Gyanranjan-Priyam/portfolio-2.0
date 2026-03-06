@@ -54,13 +54,94 @@ const nextConfig = {
     },
   ],
   redirects: async () => [
+    // Home aliases
     {
       source: '/home',
       destination: '/',
       permanent: true,
     },
     {
+      source: '/index',
+      destination: '/',
+      permanent: true,
+    },
+    {
       source: '/404',
+      destination: '/',
+      permanent: true,
+    },
+
+    // About aliases
+    {
+      source: '/about-me',
+      destination: '/about',
+      permanent: true,
+    },
+    {
+      source: '/me',
+      destination: '/about',
+      permanent: true,
+    },
+
+    // Projects aliases (singular → plural, common names)
+    {
+      source: '/project',
+      destination: '/projects',
+      permanent: true,
+    },
+    {
+      source: '/project/:id',
+      destination: '/projects/:id',
+      permanent: true,
+    },
+    {
+      source: '/work',
+      destination: '/projects',
+      permanent: true,
+    },
+    {
+      source: '/portfolio',
+      destination: '/projects',
+      permanent: true,
+    },
+
+    // Blog aliases (singular → plural)
+    {
+      source: '/blog',
+      destination: '/blogs',
+      permanent: true,
+    },
+    {
+      source: '/blog/:id',
+      destination: '/blogs/:id',
+      permanent: true,
+    },
+    {
+      source: '/articles',
+      destination: '/blogs',
+      permanent: true,
+    },
+    {
+      source: '/posts',
+      destination: '/blogs',
+      permanent: true,
+    },
+
+    // Resume / CV
+    {
+      source: '/resume',
+      destination: '/resume/resume.pdf',
+      permanent: true,
+    },
+    {
+      source: '/cv',
+      destination: '/resume/resume.pdf',
+      permanent: true,
+    },
+
+    // Contact (section lives on the home page)
+    {
+      source: '/contact',
       destination: '/',
       permanent: true,
     },
