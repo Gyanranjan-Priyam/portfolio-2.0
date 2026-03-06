@@ -58,92 +58,92 @@ const nextConfig = {
     {
       source: '/home',
       destination: '/',
-      permanent: true,
+      statusCode: 301,
     },
     {
       source: '/index',
       destination: '/',
-      permanent: true,
+      statusCode: 301,
     },
     {
       source: '/404',
       destination: '/',
-      permanent: true,
+      statusCode: 301,
     },
 
     // About aliases
     {
       source: '/about-me',
       destination: '/about',
-      permanent: true,
+      statusCode: 301,
     },
     {
       source: '/me',
       destination: '/about',
-      permanent: true,
+      statusCode: 301,
     },
 
     // Projects aliases (singular → plural, common names)
     {
       source: '/project',
       destination: '/projects',
-      permanent: true,
+      statusCode: 301,
     },
     {
       source: '/project/:id',
       destination: '/projects/:id',
-      permanent: true,
+      statusCode: 301,
     },
     {
       source: '/work',
       destination: '/projects',
-      permanent: true,
+      statusCode: 301,
     },
     {
       source: '/portfolio',
       destination: '/projects',
-      permanent: true,
+      statusCode: 301,
     },
 
     // Blog aliases (singular → plural)
     {
       source: '/blog',
       destination: '/blogs',
-      permanent: true,
+      statusCode: 301,
     },
     {
       source: '/blog/:id',
       destination: '/blogs/:id',
-      permanent: true,
+      statusCode: 301,
     },
     {
       source: '/articles',
       destination: '/blogs',
-      permanent: true,
+      statusCode: 301,
     },
     {
       source: '/posts',
       destination: '/blogs',
-      permanent: true,
+      statusCode: 301,
     },
 
     // Resume / CV
     {
       source: '/resume',
       destination: '/resume/resume.pdf',
-      permanent: true,
+      statusCode: 301,
     },
     {
       source: '/cv',
       destination: '/resume/resume.pdf',
-      permanent: true,
+      statusCode: 301,
     },
 
     // Contact (section lives on the home page)
     {
       source: '/contact',
       destination: '/',
-      permanent: true,
+      statusCode: 301,
     },
   ],
 };

@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: 'https://gyanranjanpriyam.tech',
+  siteUrl: 'https://www.gyanranjanpriyam.tech',
   generateRobotsTxt: true,
   generateIndexSitemap: false,
   changefreq: 'weekly',
