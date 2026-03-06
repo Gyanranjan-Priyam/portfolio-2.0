@@ -24,7 +24,7 @@ All pages, text, projects, and interactive elements live in the standard DOM, st
 
 ### 3. Overlay — Fluid Simulation
 
-A full-viewport canvas sits above everything, running a real-time fluid dynamics simulation driven by cursor movement. It uses `mix-blend-mode` to interact visually with the layers beneath, producing a painterly, organic texture over the entire interface.
+A  full-viewport canvas sits above everything, running a real-time fluid dynamics simulation driven by cursor movement. It uses `mix-blend-mode` to interact visually with the layers beneath, producing a painterly, organic texture over the entire interface.
 
 ---
 
