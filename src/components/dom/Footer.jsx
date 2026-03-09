@@ -123,11 +123,9 @@ function Footer() {
               <Link
                 aria-label="Send email"
                 scroll={false}
-                href="mailto:contact.gyanranjan@gmail.com"
+                href="mailto:info@priyam.tech"
               >
-                <h4 className={clsx(styles.email, 'h4')}>
-                  contact.gyanranjan@gmail.com
-                </h4>
+                <h4 className={clsx(styles.email, 'h4')}>info@priyam.tech</h4>
               </Link>
               {/* class="link__graphic link__graphic--slide" */}
               <svg

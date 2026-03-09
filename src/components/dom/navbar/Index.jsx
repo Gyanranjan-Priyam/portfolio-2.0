@@ -57,10 +57,7 @@ function Navbar() {
 
           <div className={styles.rightContainer}>
             {!isMobile && (
-              <ButtonLink
-                href="mailto:contact.gyanranjan@gmail.com"
-                label="GET IN TOUCH"
-              />
+              <ButtonLink href="mailto:info@priyam.tech" label="GET IN TOUCH" />
             )}
             <ThemeToggle />
             <MenuButton />
